@@ -1,0 +1,28 @@
+<!doctype html>
+<title>Hello from Flask</title>
+{% if person %}
+  <h1>Hello {{ person }}!</h1>
+{% else %}
+  <h1>Hello, World!</h1>
+{% endif %}
+ <form onSubmit="return sendData() ">
+  <label for="addy1">Location:</label>
+  <input type="text" id="addy1" name="addy1"><br><br>
+  <label for="addy2">Destination:</label>
+  <input type="text" id="addy2" name="addy2"><br><br>
+  <input type="submit" value="Submit">
+</form>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <link rel="stylesheet" href={{url_for('static', filename= 'style.css')}}>
+  <div id="map">
+ <script type="text/javascript"
+         src="{{ url_for('static', filename='map.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='map.js') }}"></script>
+
+ </div>
