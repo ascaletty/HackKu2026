@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/ascaletty/HackKu2026/issues"
   },
-  "homepage": "https://github.com/ascaletty/HackKu2026#readme"
+  "homepage": "https://github.com/ascaletty/HackKu2026#readme",
+  "dependencies": {
+    "vite": "^8.0.8"
+  }
 }
