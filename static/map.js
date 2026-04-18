@@ -8,6 +8,34 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(map);
+const outputElem = document.querySelector("#output");
+
+if (typeof HTMLGeolocationElement === "function") {
+  const geo = document.querySelector("geolocation");
+  geo.addEventListener("location", () => {
+    if (geo.position) {
+      map.setView([geo.position.coords.latitude, geo.position.coords.longitude])
+      console.log(geo.position)
+    } else if (geo.error) {
+      outputElem.textContent += `${geo.error.message}, `;
+      console.log("fail")
+    }
+  });
+} else {
+  const fallback = document.querySelector("#fallback");
+  fallback.addEventListener("click", () => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log("hie")
+        outputElem.textContent += `(${position.coords.latitude}, ${position.coords.longitude}), `;
+      },
+      (error) => {
+        console.log(error)
+        outputElem.textContent += `${error.message}, `;
+      },
+    );
+  });
+}
 
 function sendData() {
   var addy1 = document.getElementById('addy1').value;
