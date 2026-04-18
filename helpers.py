@@ -37,13 +37,12 @@ def autocomplete(addy):
         raise ValueError(
             f"server returned exit code {resp.status_code} with {resp.json()}"
         )
-def routingtoGeoJson(coordinates):
 
 
-# autocomp = input("Input your addy")
+autocomp = input("Input your addy")
 # print(autocomplete(autocomp))
 # #
-# print(forwardGeocode(autocomp))
+print(forwardGeocode(autocomp))
 
 # def reverseGeocode(coordinates):
 # probably won't need this thing I don't think
