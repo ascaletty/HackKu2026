@@ -5,7 +5,7 @@
 {% else %}
   <h1>Hello, World!</h1>
 {% endif %}
- <form onSubmit="return sendData() ">
+ <form onSubmit="sendData(); return false ">
   <label for="addy1">Location:</label>
   <input type="text" id="addy1" name="addy1"><br><br>
   <label for="addy2">Destination:</label>
@@ -21,8 +21,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
  <link rel="stylesheet" href={{url_for('static', filename= 'style.css')}}>
   <div id="map">
- <script type="text/javascript"
-         src="{{ url_for('static', filename='map.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='map.js') }}"></script>
 
  </div>
