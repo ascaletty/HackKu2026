@@ -76,7 +76,7 @@ def calc_route(source, destination):
         )
 
 
-def get_route_forecast(route, leaving_time):
+def get_route_forecast(route):
 
     headers = CaseInsensitiveDict()
     headers["Accept"] = "application/json"
@@ -85,8 +85,7 @@ def get_route_forecast(route, leaving_time):
     legs = route["features"][0]["properties"]["legs"][0]["steps"]
     # print(legs)
 
-    # now = time.time()
-    now = leaving_time
+    now = time.time()
     dt = datetime.datetime.fromtimestamp(now)
     future_hour = 0
     hour = dt.hour
@@ -114,6 +113,7 @@ def get_route_forecast(route, leaving_time):
         dict_path[leg["to_index"]][now] = forecast["properties"]["periods"][future_hour]
 
     print(dict_path)
+    return dict_path
 
     # length = len(path[0])
     # avg_path = np.linspace(0, length - 1, 20)

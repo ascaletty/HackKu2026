@@ -37,7 +37,21 @@ if (typeof HTMLGeolocationElement === "function") {
     );
   });
 }
+function getTemp(i, tempByIndex) {
+  if (tempByIndex[i] !== undefined) return tempByIndex[i];
 
+  // fallback: search backward
+  for (let j = i; j >= 0; j--) {
+    if (tempByIndex[j] !== undefined) return tempByIndex[j];
+  }
+
+  // fallback forward
+  for (let j = i; j < 10000; j++) {
+    if (tempByIndex[j] !== undefined) return tempByIndex[j];
+  }
+
+  return 0; // final fallback
+}
 function sendData() {
   var addy1 = document.getElementById('addy1').value;
   var addy2 = document.getElementById('addy2').value;
@@ -46,26 +60,90 @@ function sendData() {
                 url: '/form',
                 type: 'POST',
                 data: { 'addy1': addy1,
-                        'addy2': addy2},
+                        'addy2': addy2
+                        },
                 success: function(response) {
                   L.marker(response[0]).addTo(map)
                   L.marker(response[1]).addTo(map)
-                  console.log(response[2])
-                  var polyline= L.polyline(response[2], {color: 'red'}).addTo(map);
-                  map.fitBounds(polyline.getBounds());
-                  // map.fitBounds([response[0], response[1]])
+                  var coords = response[2];
+                  console.log(coords)
+                  var temp_time_dict = response[3];
 
+                  const indexes = Object.keys(temp_time_dict)
+                    .map(Number)
+                    .sort((a, b) => a - b);
+                  const tempByIndex = {};
+
+                  Object.keys(temp_time_dict).forEach(k => {
+                    const entry = Object.values(temp_time_dict[k])[0];
+                      tempByIndex[Number(k)] = entry.temperature;
+                 });
+                  const temps = Object.values(temp_time_dict).map(obj => {
+                      const entry = Object.values(obj)[0];
+                      return entry.temperature;
+                    });
+
+                  const minTemp = Math.min(...temps);
+                  const maxTemp = Math.max(...temps);
+                  for (let i = 0; i < coords.length - 1; i++) {
+                      const start = coords[i];
+                      const end = coords[i + 1];
+
+                      const temp = getTemp(i, tempByIndex)
+                      console.log(temp)
+                      console.log(start)
+
+                      console.log(end)
+
+                      const segment = [
+                        [start[0], start[1]],
+                        [end[0], end[1]]
+                      ];
+
+                      L.polyline(segment, {
+                        color: getColor(temp),
+                      }).addTo(map);
+                    }
+
+                  // for (let i = 0; i < indexes.length - 1; i++) {
+                  //   const startIdx = indexes[i];
+                  //   console.log(startIdx)
+                  //   const endIdx = indexes[i + 1];
+                  //
+                  //   console.log(endIdx)
+                  //   const start = coords[startIdx];
+                  //   const end = coords[endIdx];
+                  //   console.log(start)
+                  //
+                  //   console.log(end)
+                  //
+                  //   const temp = Object.values(temp_time_dict[startIdx])[0].temperature;
+                  //
+                  //   const segment = [
+                  //     [start[0], start[1]],
+                  //     [end[0], end[1]]
+                  //   ];
+                  //
+                  //   L.polyline(segment, {
+                  //     color: getColor(temp),
+                  //   }).addTo(map);
+                  // }
+                  map.fitBounds([response[0], response[1]])
                 },
                 error: function(error) {
                     console.log(error);
                 }
             });
-
 }
 
+function rgbToHex(r, g, b) {
+  return "#" + [r, g, b]
+    .map(x => x.toString(16).padStart(2, "0"))
+    .join("");
+}
 function getColor(temp) {
-  const min = 0;
-  const max = 100;
+  const min = 30;
+  const max = 50;
 
   const t = Math.max(0, Math.min(1, (temp - min) / (max - min)));
 

@@ -21,14 +21,15 @@ def form_api():
 
     coords2 = resp2["features"][0]["geometry"]["coordinates"]
     route_json = calc_route(coords1, coords2)
-
     coords = route_json["features"][0]["geometry"]["coordinates"]
     route_cords = [(lat, lon) for segment in coords for lon, lat in segment]
     # print(route_json)
-    coords = [[coords1[1], coords1[0]], [coords2[1], coords2[0]], route_cords]
+    temp_time_dict = get_route_forecast(route_json)
+    print(temp_time_dict)
+    coords = [
+        [coords1[1], coords1[0]],
+        [coords2[1], coords2[0]],
+        route_cords,
+        temp_time_dict,
+    ]
     return coords
-
-
-@app.route("/form", methods=["POST"])
-def cal_api():
-    get_route_forecast(route, leaving_time)
