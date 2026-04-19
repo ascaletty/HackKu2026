@@ -95,7 +95,7 @@ function sendData() {
 
 
 
-                  document.getElementById("endw").textContent= "Temperature is " + temp1+ "F, with wind speed "+ windSpeed1+ ", and " +shortForecast1+ " forecast";
+                  document.getElementById("endw").textContent= "Temperature will be " + temp1+ "F, with wind speed "+ windSpeed1+ ", and " +shortForecast1+ " forecast";
                   document.getElementById("startw").textContent= "Temperature is " + temp+ "F, with wind speed "+ windSpeed+ ", and " +shortForecast+ " forecast";
 
                   Object.keys(temp_time_dict).forEach(k => {
