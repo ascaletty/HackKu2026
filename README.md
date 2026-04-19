@@ -1,8 +1,8 @@
-# Project Name
+# Travel Condition Manager
+
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)  
-> A brief description of your project, what it does, and its purpose.
-
+It takes a user input of to addresses and displays a calculated route on an integrated world map, and displays weather conditions along the road.
 ---
 
 ## Table of Contents
@@ -18,6 +18,8 @@
 ---
 
 ## Description
+
+It takes a user input of to addresses and displays a calculated route on an integrated world map, and displays weather conditions along the road.
 
 ---
 
@@ -39,7 +41,7 @@ To install the project, follow the steps below:
     git clone https://github.com/your-username/project-name.git
     ```
 
-2. Install dependencies (if applicable):
+2. Install dependencies :
 
     ```bash
     pip install uv 
