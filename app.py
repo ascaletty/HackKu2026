@@ -1,14 +1,16 @@
 from requests import request
+import requests
 from flask import render_template
 from flask import Flask, request
 from helpers import forwardGeocode, calc_route, get_route_forecast
 
 app = Flask(__name__)
+data = {}
 
 
-@app.route("/")
-def hello(name=None):
-    return render_template("hello.html", person=name)
+@app.route("/", methods=["POST", "GET"])
+def hello():
+    return render_template("hello.html")
 
 
 @app.route("/form", methods=["POST"])
@@ -33,3 +35,9 @@ def form_api():
         temp_time_dict,
     ]
     return coords
+
+
+# @app.route("/weather", methods=["POST"])
+# def weather(name=None):
+#     weather_source = request.form.get("source")
+#     return render_template("weather.html", person=name)

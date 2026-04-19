@@ -72,7 +72,16 @@ function sendData() {
                   const indexes = Object.keys(temp_time_dict)
                     .map(Number)
                     .sort((a, b) => a - b);
+                  const overview= {};
+                  Object.keys(temp_time_dict).forEach(k => {
+                    const entry = Object.values(temp_time_dict[k])[0];
+                      overview[Number(k)] = [entry.temperature, entry.windSpeed, entry.shortForecast];
+                 });
+
                   const tempByIndex = {};
+                  console.log(overview)
+                  const temp=overview[Object.keys(overview)[0]]
+                  document.getElementById("startw").textContent= "temperature is " + temp;
 
                   Object.keys(temp_time_dict).forEach(k => {
                     const entry = Object.values(temp_time_dict[k])[0];
@@ -134,6 +143,7 @@ function sendData() {
                     console.log(error);
                 }
             });
+
 }
 
 function rgbToHex(r, g, b) {
