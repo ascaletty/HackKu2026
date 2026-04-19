@@ -1,2 +1,61 @@
- #map { height: 1000px; }
+ #map { border: 5px solid black;
+        height: 500px; 
+        width: 1000px;
+        margin-left: 25px;
+}
 
+div.topDiv{
+    border: 5px solid black;
+    width:300px;
+    height: 250px;
+    margin-top: 20px;
+    margin-left: 20px;
+    float: left;
+    background-color: aquamarine;
+  }
+div.weatherDiv{
+    border: 5px solid black;
+    width:700px;
+    margin-top: 20px;
+    float: left;
+    height: 250px;
+    background-color: aqua;
+}
+div.internalDiv{
+    border: 3px solid gray;
+    width: 200px;
+    height: 100px;
+    margin-left: 20px;
+    margin-top: 10px;
+    float: left;
+}
+div.subDiv{
+    border: 3px solid gray;
+    width: 200px;
+    width: 200px;
+    margin-left: -3px;
+    margin-top: -3px;
+}
+div.inputDiv{
+    background-color: darkcyan;
+    width: 200px;
+    width: 200px;
+    margin: 5px;
+}
+label.Supertext{
+    color:azure
+}
+h3{
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+#fallback{
+    margin: 0 auto
+  }
+body {
+  background-color: rgb(255, 253, 208); /* Sets the page background */
+  font-family: Arial, sans-serif; /* Sets the default font for all text */
+  margin: 0; /* Removes default browser spacing around the page */
+  color: #333; /* Sets the default text color */
+}

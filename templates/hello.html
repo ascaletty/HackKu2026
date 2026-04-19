@@ -1,21 +1,53 @@
 <!doctype html>
+<style>
+
+</style>
+
+<div class="topDiv">
 <title>Hello from Flask</title>
 {% if person %}
   <h1>Hello {{ person }}!</h1>
 {% else %}
-  <h1>Hello, World!</h1>
+  <h1>Welcome Traveler</h1>
 {% endif %}
  <form onSubmit="sendData(); return false ">
-  <label for="addy1">Location:</label>
+  <div class="inputDiv">
+  <label class="Supertext" for="addy1">Location:</label><br><br>
   <input type="text" id="addy1" name="addy1"><br><br>
-  <label for="addy2">Destination:</label>
+  </div>
+  <div class="inputDiv">
+  <label class="Supertext" for="addy2">Destination:</label><br><br>
   <input type="text" id="addy2" name="addy2"><br><br>
+  </div>
   <input type="submit" value="Submit">
 </form>
 <geolocation>
   <button id="fallback">Use location</button>
 </geolocation>
 <p id="output"></p>
+</div>
+
+<div class="weatherDiv">
+  <div class = "internalDiv">
+    <div class = "subDiv">
+      <h3>Starting Weather</h3>
+    </div>
+    <h2>Weather at start</h2>
+  </div>
+  <div class = "internalDiv">
+    <div class = "subDiv">
+      <h3>Weather halfway</h3>
+    </div>
+    <h2>Weather halfway</h2>
+  </div>
+  <div class = "internalDiv">
+    <div class = "subDiv">
+      <h3>Destination Weather</h3>
+    </div>
+    <h2>Destination Weather</h2>
+  </div>
+  
+</div>
  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
