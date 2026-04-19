@@ -84,7 +84,7 @@ function sendData() {
                   const windSpeed= overview[Object.keys(overview)[0]][1]
 
                   const shortForecast= overview[Object.keys(overview)[0]][2]
-                  document.getElementById("startw").textContent= "temperature is " + temp+ "with wind speed"+ windSpeed+ "and" +shortForecast;
+                  document.getElementById("startw").textContent= "Temperature is " + temp+ "F, with wind speed "+ windSpeed+ ", and " +shortForecast+ " forecast";
 
                   Object.keys(temp_time_dict).forEach(k => {
                     const entry = Object.values(temp_time_dict[k])[0];
