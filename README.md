@@ -20,6 +20,8 @@ It takes a user input of to addresses and displays a calculated route on an inte
 
 ## Description
 
+It takes a user input of to addresses and displays a calculated route on an integrated world map, and displays weather conditions along the road.
+
 ---
 
 ## Features
