@@ -62,3 +62,15 @@ function sendData() {
             });
 
 }
+
+function getColor(temp) {
+  const min = 0;
+  const max = 100;
+
+  const t = Math.max(0, Math.min(1, (temp - min) / (max - min)));
+
+  const r = Math.round(255 * t);
+  const b = Math.round(255 * (1 - t));
+
+  return `rgb(${r}, 100, ${b})`;
+}

@@ -1,7 +1,7 @@
 from requests import request
 from flask import render_template
 from flask import Flask, request
-from helpers import forwardGeocode, calc_route
+from helpers import forwardGeocode, calc_route, get_route_forecast
 
 app = Flask(__name__)
 
@@ -27,3 +27,8 @@ def form_api():
     # print(route_json)
     coords = [[coords1[1], coords1[0]], [coords2[1], coords2[0]], route_cords]
     return coords
+
+
+@app.route("/form", methods=["POST"])
+def cal_api():
+    get_route_forecast(route, leaving_time)
