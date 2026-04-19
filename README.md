@@ -41,7 +41,7 @@ To install the project, follow the steps below:
     git clone https://github.com/your-username/project-name.git
     ```
 
-2. Install dependencies (if applicable):
+2. Install dependencies :
 
     ```bash
     pip install uv 
