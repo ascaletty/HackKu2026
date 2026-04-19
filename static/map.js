@@ -8,6 +8,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(map);
+
 const outputElem = document.querySelector("#output");
 
 if (typeof HTMLGeolocationElement === "function") {
@@ -26,7 +27,7 @@ if (typeof HTMLGeolocationElement === "function") {
   fallback.addEventListener("click", () => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        console.log("hie")
+        map.setView([position.coords.latitude, position.coords.longitude])
         outputElem.textContent += `(${position.coords.latitude}, ${position.coords.longitude}), `;
       },
       (error) => {

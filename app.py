@@ -24,6 +24,6 @@ def form_api():
 
     coords = route_json["features"][0]["geometry"]["coordinates"]
     route_cords = [(lat, lon) for segment in coords for lon, lat in segment]
-    print(route_json)
+    # print(route_json)
     coords = [[coords1[1], coords1[0]], [coords2[1], coords2[0]], route_cords]
     return coords

@@ -1,3 +1,5 @@
+import re
+import numpy as np
 import requests
 from requests.structures import CaseInsensitiveDict
 from dotenv import dotenv_values
@@ -45,7 +47,6 @@ def calc_route(source, destination):
     headers["Accept"] = "application/json"
     print(source)
     print(destination)
-    # url=https://api.geoapify.com/v1/routing?waypoints=50.67902320667227,4.569876996843732%7C50.66170571489684,4.578667041603012&mode=drive&apiKey=d548c5ed24604be6a9dd0d989631f783
     url = (
         "https://api.geoapify.com/v1/routing?waypoints="
         + str(source[1])
@@ -63,11 +64,57 @@ def calc_route(source, destination):
     if resp.status_code == 200:
         print(resp.status_code)
         resp_json = resp.json()
+        # print(resp_json)
+        get_route_forecast(resp_json)
         return resp_json
     else:
         raise ValueError(
             f"server returned exit code {resp.status_code} with {resp.json()}"
         )
+
+
+def get_route_forecast(route):
+
+    headers = CaseInsensitiveDict()
+    headers["Accept"] = "application/json"
+    path = route["features"][0]["geometry"]["coordinates"]
+    length = len(path[0])
+    avg_path = np.linspace(0, length - 1, 20)
+    for num in avg_path:
+        gridpoints = (
+            "https://api.weather.gov/points/"
+            + str(path[0][int(num)][1])
+            + ","
+            + str(path[0][int(num)][0])
+        )
+
+        resp = requests.get(gridpoints, headers=headers)
+        resp = resp.json()
+        get_grid_coord_forecast(resp)
+
+
+def get_grid_coord_forecast(resp):
+    headers = CaseInsensitiveDict()
+    headers["Accept"] = "application/json"
+
+    cwa = resp["properties"]["cwa"]
+    x = resp["properties"]["gridX"]
+    y = resp["properties"]["gridY"]
+
+    forecastUrl = (
+        "https://api.weather.gov/gridpoints/"
+        + cwa
+        + "/"
+        + str(x)
+        + ","
+        + str(y)
+        + "/forecast/hourly?units=us"
+    )
+    resp2 = requests.get(forecastUrl, headers=headers)
+    resp2 = resp2.json()
+    print(
+        f"it will be {resp2['properties']['periods'][0]['temperature']} from {resp2['properties']['periods'][0]['startTime']} to {resp2['properties']['periods'][0]['endTime']}"
+    )
 
 
 # autocomp = input("Input your addy")
