@@ -1,24 +1,27 @@
- #map { border: 5px solid black;
+ #map { border: 5px solid rgb(250, 255, 174);
         height: 500px; 
-        width: 1000px;
+        width: 800px;
         margin-left: 25px;
+        
 }
-
+h1{
+    margin-left: 120px;
+}
 div.topDiv{
-    border: 5px solid black;
-    width:300px;
-    height: 250px;
+    /*border: 5px solid black;*/
+    width:500px;
+    height: 260px;
     margin-top: 20px;
     margin-left: 20px;
     float: left;
     background-color: aquamarine;
   }
 div.weatherDiv{
-    border: 5px solid black;
-    width:700px;
+    /*border: 5px solid black;*/
+    width:710px;
     margin-top: 20px;
     float: left;
-    height: 250px;
+    height: 260px;
     background-color: aqua;
 }
 div.internalDiv{
@@ -39,12 +42,36 @@ div.subDiv{
 div.inputDiv{
     background-color: darkcyan;
     width: 200px;
-    width: 200px;
+    width: 240px;
     margin: 5px;
+    float: left;
 }
 label.Supertext{
-    color:azure
+    color:azure;
+    margin-left: 7px;
 }
+input.thatButton{
+    float: left;
+    margin-left: 13px;
+    margin-right: 3px;
+    width: 120px;
+    height: 45px;
+    font-size: 20px;
+
+}
+geolocation.uselocationbutton{
+    height:100px;
+    margin-left: 200px;
+}
+input.textboxcool{
+    margin: auto auto;
+    margin-left: 3px;
+    margin-top: 3px;
+    width: 220px;
+    height: 30px;
+    font-size: 20px;
+}
+
 h3{
     margin-left: 5px;
     margin-top: 5px;

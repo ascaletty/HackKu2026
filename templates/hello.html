@@ -12,16 +12,17 @@
 {% endif %}
  <form onSubmit="sendData(); return false ">
   <div class="inputDiv">
-  <label class="Supertext" for="addy1">Location:</label><br><br>
-  <input type="text" id="addy1" name="addy1"><br><br>
+  <label class="Supertext" for="addy1">Location:</label>
+  <input class="textboxcool" type="text" id="addy1" name="addy1"><br><br>
   </div>
   <div class="inputDiv">
-  <label class="Supertext" for="addy2">Destination:</label><br><br>
-  <input type="text" id="addy2" name="addy2"><br><br>
+  <label class="Supertext" for="addy2">Destination:</label>
+  <input  class="textboxcool" type="text" id="addy2" name="addy2"><br><br>
   </div>
-  <input type="submit" value="Submit">
+  <input class = "thatButton" type="submit" value="Submit">
 </form>
-<geolocation>
+<br><br>
+<geolocation class = "uselocationbutton">
   <button id="fallback">Use location</button>
 </geolocation>
 <p id="output"></p>
