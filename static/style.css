@@ -1,88 +1,154 @@
- #map { border: 5px solid rgb(250, 255, 174);
-        height: 500px; 
-        width: 800px;
-        margin-left: 25px;
-        
-}
-h1{
-    margin-left: 120px;
-}
-div.topDiv{
-    /*border: 5px solid black;*/
-    width:500px;
-    height: 260px;
+ #map {
+     border: 5px solid rgb(250, 255, 174);
+     height: 500px;
+     width: 800px;
+     margin-left: 25px;
+     float: left;
+
+ }
+
+ h1 {
+     margin-left: 120px;
+ }
+
+ div.topDiv {
+     /*border: 5px solid black;*/
+     width: 500px;
+     height: 260px;
+     margin-top: 20px;
+     margin-left: 20px;
+     float: left;
+     background-color: aquamarine;
+     border-radius: 5px;
+ }
+
+ div.weatherDiv {
+     /*border: 5px solid black;*/
+     width: 710px;
+     margin-top: 20px;
+     float: left;
+     height: 260px;
+     background-color: aqua;
+     border-radius: 5px;
+ }
+
+ div.internalDiv {
+     border: 3px solid gray;
+     width: 200px;
+     height: 200px;
+     margin-left: 20px;
+     margin-top: 10px;
+     float: left;
+ }
+
+ div.subDiv {
+     border: 3px solid gray;
+     width: 200px;
+     width: 200px;
+     margin-left: -3px;
+     margin-top: -3px;
+ }
+
+ div.inputDiv {
+     background-color: darkcyan;
+     width: 200px;
+     width: 240px;
+     margin: 5px;
+     float: left;
+ }
+
+ label.Supertext {
+     color: azure;
+     margin-left: 7px;
+ }
+
+ input.thatButton {
+     float: left;
+     margin-left: 13px;
+     margin-right: 3px;
+     width: 120px;
+     height: 45px;
+     font-size: 20px;
+
+ }
+
+ geolocation.uselocationbutton {
+     height: 100px;
+     margin-left: 200px;
+ }
+
+ input.textboxcool {
+     margin: auto auto;
+     margin-left: 3px;
+     margin-top: 3px;
+     width: 220px;
+     height: 30px;
+     font-size: 20px;
+ }
+
+ h3 {
+     margin-left: 5px;
+     margin-top: 5px;
+ }
+
+ #fallback {
+     margin: 0 auto
+ }
+
+ body {
+     background-color: rgb(255, 253, 208);
+     /* Sets the page background */
+     font-family: Arial, sans-serif;
+     /* Sets the default font for all text */
+     margin: 0;
+     /* Removes default browser spacing around the page */
+     color: #333;
+     /* Sets the default text color */
+ }
+
+ /*Chunt Shit*/
+ table,
+ th,
+ td {
+     border: 1.75px solid black;
+     border-collapse: collapse;
+ }
+
+ table {
+     width: 400px
+ }
+
+ td {
+     text-align: center;
+     height: 25px
+ }
+
+ th.topth {
+     background-color: navy;
+     text-align: left
+ }
+
+ h2 {
+     text-align: center;
+ }
+
+ div.chuntdiv {
+     background-color: yellow;
+     width: 400px;
+     height: 380px;
+     float: left;
+ }
+input.itinerarytext {
+     margin: auto auto;
+     margin-left: 3px;
+     margin-top: 3px;
+     width: 220px;
+     height: 30px;
+     font-size: 15px;
+ }
+ img.weather{
+    height: 200px;
+    length: 200px;
+    float: left;
     margin-top: 20px;
-    margin-left: 20px;
-    float: left;
-    background-color: aquamarine;
-  }
-div.weatherDiv{
-    /*border: 5px solid black;*/
-    width:710px;
-    margin-top: 20px;
-    float: left;
-    height: 260px;
-    background-color: aqua;
-}
-div.internalDiv{
-    border: 3px solid gray;
-    width: 200px;
-    height: 100px;
-    margin-left: 20px;
-    margin-top: 10px;
-    float: left;
-}
-div.subDiv{
-    border: 3px solid gray;
-    width: 200px;
-    width: 200px;
-    margin-left: -3px;
-    margin-top: -3px;
-}
-div.inputDiv{
-    background-color: darkcyan;
-    width: 200px;
-    width: 240px;
-    margin: 5px;
-    float: left;
-}
-label.Supertext{
-    color:azure;
-    margin-left: 7px;
-}
-input.thatButton{
-    float: left;
-    margin-left: 13px;
-    margin-right: 3px;
-    width: 120px;
-    height: 45px;
-    font-size: 20px;
-
-}
-geolocation.uselocationbutton{
-    height:100px;
-    margin-left: 200px;
-}
-input.textboxcool{
-    margin: auto auto;
-    margin-left: 3px;
-    margin-top: 3px;
-    width: 220px;
-    height: 30px;
-    font-size: 20px;
-}
-
-h3{
-    margin-left: 5px;
-    margin-top: 5px;
-}
-
-#fallback{
-    margin: 0 auto
-  }
-body {
-  background-color: rgb(255, 253, 208); /* Sets the page background */
-  font-family: Arial, sans-serif; /* Sets the default font for all text */
-  margin: 0; /* Removes default browser spacing around the page */
-  color: #333; /* Sets the default text color */
-}
+ }
