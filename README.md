@@ -2,7 +2,6 @@
 
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)  
-> A brief description of your project, what it does, and its purpose.
 It takes a user input of to addresses and displays a calculated route on an integrated world map, and displays weather conditions along the road.
 ---
 
